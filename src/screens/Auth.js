@@ -10,8 +10,8 @@ import { server, showError, showSuccess } from '../common'
 
 const initialState = {
     name: '',
-        email: '',
-        password: '',
+        email: 'teste@blabla.com',
+        password: '123456',
         confirmPassword: '',
         stageNew: false
 }
@@ -85,7 +85,7 @@ export default class Auth extends Component{
                     {this.state.stageNew && 
                         <AuthInput icon='lock' placeholder='Confirmar a senha' value={this.state.confirmPassword} style={styles.input} onChangeText={confirmPassword => this.setState({ confirmPassword })} secureTextEntry={true}/>
                     }
-                    <TouchableOpacity onPress={this.signinOrSignup} disabled={validForm}>
+                    <TouchableOpacity onPress={this.signinOrSignup} disabled={!validForm}>
                         <View style={[styles.button, validForm ? {} : { backgroundColor: '#AAA'}]}>
                             <Text style={styles.buttonText}> {this.state.stageNew ? 'Registrar' : 'Entrar' } </Text>
                         </View>
